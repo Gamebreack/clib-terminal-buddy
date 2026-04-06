@@ -1,0 +1,29 @@
+{
+  "name": "clib-command-line-interface-buddy",
+  "version": "1.0.0",
+  "description": "CLIB - Command Line Interface Buddy: A persistent status bar system for terminal integration with real-time ASCII art status updates",
+  "main": "clib-core.js",
+  "scripts": {
+    "test": "node test-buddy.js",
+    "install": "./install.sh",
+    "setup": "./setup.sh"
+  },
+  "keywords": [
+    "terminal",
+    "bash",
+    "prompt",
+    "status",
+    "ascii-art",
+    "openclaw"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/clib-command-line-interface-buddy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/clib-command-line-interface-buddy/issues"
+  },
+  "homepage": "https://github.com/your-username/clib-command-line-interface-buddy#readme"
+}
