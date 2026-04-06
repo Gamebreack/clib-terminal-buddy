@@ -20,10 +20,14 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/clib-command-line-interface-buddy.git"
+    "url": "git+https://github.com/your-username/clib-command-line-interface-buddy.git"
   },
   "bugs": {
     "url": "https://github.com/your-username/clib-command-line-interface-buddy/issues"
   },
-  "homepage": "https://github.com/your-username/clib-command-line-interface-buddy#readme"
+  "homepage": "https://github.com/your-username/clib-command-line-interface-buddy#readme",
+  "type": "commonjs",
+  "dependencies": {
+    "@modelcontextprotocol/server-github": "^2025.4.8"
+  }
 }
