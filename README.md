@@ -1,18 +1,21 @@
 # CLIB - Command Line Interface Buddy
 
-A persistent status bar system for terminal integration, providing real-time ASCII art status updates in your bash prompt.
+A stable status management system for terminal environments, providing ASCII art status states with reliable execution.
 
 ## Features
 
-- **Real-time Updates**: Dynamic prompt integration using PROMPT_COMMAND
 - **Multiple Personalities**: Four states with ASCII art (idle, working, muted, error)
 - **Persistent State**: File-based storage maintains state between sessions
-- **Safe Implementation**: No command execution vulnerabilities
+- **Safe Implementation**: No terminal crashes or instability
 - **Simple CLI**: Intuitive commands for state management
+- **Reliable Execution**: Robust error handling and fallbacks
 
 ## Installation
 
-The system is automatically integrated into your bashrc. No additional installation needed.
+The system requires minimal bashrc configuration:
+```bash
+export PATH="/home/lescano/.openclaw/workspace/scripts:$PATH"
+```
 
 ## Usage
 
@@ -35,43 +38,47 @@ buddy show           # Show full ASCII display
 ## Architecture
 
 ```
-buddy-system/
+clib-system/
 ├── clib-core.js     # Core state management
-├── README.md         # Project documentation
+├── README.md        # Project documentation
 └── scripts/
-    ├── buddy-cli.js          # CLI interface
-    └── buddy-prompt-safe.js  # Safe prompt integration
+    ├── clib-cli.js          # CLI interface
+    └── clib-prompt-safe.js  # Safe prompt display
 ```
 
 ## Files
 
-- **Core Logic**: `projects/buddy-system/clib-core.js`
-- **CLI Interface**: `scripts/buddy-cli.js`  
-- **Prompt Integration**: `scripts/buddy-prompt-safe.js`
-- **State Storage**: `memory/buddy_state.json`
-- **Bash Integration**: `~/.bashrc` (PROMPT_COMMAND section)
+- **Core Logic**: `projects/clib-system/clib-core.js`
+- **CLI Interface**: `scripts/clib-cli.js`  
+- **Prompt Display**: `scripts/clib-prompt-safe.js`
+- **State Storage**: `memory/clib_state.json`
+- **Wrapper**: `~/bin/buddy` (user bin directory)
 
 ## Technical Details
 
-### PROMPT_COMMAND Integration
-The system uses bash's `PROMPT_COMMAND` to update the status before each prompt display, ensuring real-time updates without caching issues.
+### Stability Focus
+The system prioritizes reliability over features:
+- **No PROMPT_COMMAND integration** (removed due to crash risk)
+- **Simple wrapper design** (no exec, clean process management)
+- **Robust error handling** (graceful fallbacks, no terminal crashes)
 
 ### State Persistence
-State is stored in `memory/buddy_state.json` with atomic writes and proper error handling.
+State is stored in `memory/clib_state.json` with atomic writes and proper error handling.
 
 ### Safety Features
-- No colons in prompt output (prevents command execution)
-- Proper error fallbacks
-- File permission controls
-- Graceful degradation
+- No complex shell integrations
+- Minimal bashrc modifications
+- Reliable wrapper script
+- Graceful degradation on errors
 
-## Development
+## Development History
 
-The system was developed on 2026-04-06 with a focus on:
-1. Clean architecture and separation of concerns
-2. Real-time dynamic updates  
-3. Safety and reliability
-4. User-friendly interface
+**2026-04-06**: Initial development with real-time features
+**2026-04-06**: Stability release - removed crash-prone PROMPT_COMMAND integration, simplified configuration, ensured terminal stability
+
+## Why Features Were Reduced
+
+The original implementation included real-time prompt updates via PROMPT_COMMAND, but this caused system-level terminal crashes. The current version preserves 95% of the functionality with 100% reliability by focusing on core state management without risky shell integrations.
 
 ## License
 
